@@ -1,0 +1,2 @@
+C:\Users\t-natli\Documents\Algorithm Visualizer\App\Algorithm Visualizer\Algorithm Visualizer.csproj;x86
+C:\Users\t-natli\Documents\Algorithm Visualizer\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86

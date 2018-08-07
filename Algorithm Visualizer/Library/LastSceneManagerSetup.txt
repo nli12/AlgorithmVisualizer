@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/BubbleInteractive.unity
+  isLoaded: 1
+  isActive: 1

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mixed Reality Introduction", "Assembly-CSharp.csproj", "{177D9363-BEC9-3942-85ED-49A4F982F694}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mixed Reality Introduction", "Assembly-CSharp-Editor.csproj", "{2A4753B3-6820-E30E-4C73-C009405D3BE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{177D9363-BEC9-3942-85ED-49A4F982F694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{177D9363-BEC9-3942-85ED-49A4F982F694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{177D9363-BEC9-3942-85ED-49A4F982F694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{177D9363-BEC9-3942-85ED-49A4F982F694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4753B3-6820-E30E-4C73-C009405D3BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4753B3-6820-E30E-4C73-C009405D3BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4753B3-6820-E30E-4C73-C009405D3BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4753B3-6820-E30E-4C73-C009405D3BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
