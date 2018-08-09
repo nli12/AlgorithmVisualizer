@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Linq;
 
 public class SortControl : MonoBehaviour
 {
@@ -30,20 +31,21 @@ public class SortControl : MonoBehaviour
     int selectedOne = -1;
     int selectedTwo = -1;
 
-    
+    float defaultY = 0.25f;
+
+
 
     void Start()
     {
 
         count = 9;
 
+        sort = DOTween.Sequence();
         System.Random rnd = new System.Random();
         int lowerBound = 0;
         int upperBound = 100;
 
-        sort = DOTween.Sequence();
-
-
+        //Set custom values for each scene
         switch (type)
         {
             case "QuickSort":
@@ -65,45 +67,60 @@ public class SortControl : MonoBehaviour
 
         values = new int[count];
         cubes = new Transform[count];
+        float tempSize = 0f;
+        int num = -1; 
 
         for (float x = count * -0.25f, i = 0; i < count; x += 0.5f, i++)
         {
-            values[(int)i] = rnd.Next(lowerBound, upperBound);
-            cubes[(int)i] = Instantiate(templateCube, new Vector3(x, 0, 4), Quaternion.identity);
-            cubes[(int)i].GetComponent<Data>().index = (int) i;
+            // Ensures there are no duplicate values 
+            num = rnd.Next(lowerBound, upperBound);
+            while (values.Contains(num))
+            {
+                num = rnd.Next(lowerBound, upperBound);
+            }
+            values[(int)i] = num;
+            // Instantiates new cube
+            cubes[(int)i] = Instantiate(templateCube, new Vector3(x, defaultY, 4), Quaternion.identity);
+            // Sets cube value and index
+            cubes[(int)i].GetComponent<Data>().index = (int)i;
             cubes[(int)i].GetChild(numberPos).GetComponent<TextMesh>().text = values[(int)i].ToString();
+            // Sets cube size based on value
+            tempSize = values[(int)i] / 600f + 0.15f;
+            cubes[(int)i].localScale = new Vector3(tempSize, tempSize, tempSize);
         }
 
         switch (type){
             case "QuickSort":
                 QuickSort(0, values.Length - 1);
-                CompletedAnimation();
+                sort.Append(CompletedAnimation());
                 break;
             case "BubbleSort":
                 BubbleSort();
-                CompletedAnimation();
+                sort.Append(CompletedAnimation());
                 break;
             case "BubbleInteract":
                 BubbleSequence();
-                BubbleSort();
                 break;
             default:
                 break;
         }
     }
 
-    void CompletedAnimation()
+    Sequence CompletedAnimation()
     {
+        //Animation to be played when sort is completed
+        Sequence animation = DOTween.Sequence();
         foreach (Transform cube in cubes)
         {
-            sort.Append(cube.GetComponent<Renderer>().material.DOColor(Color.white, 0.001f));
+            animation.Append(cube.GetComponent<Renderer>().material.DOColor(Color.white, 0.001f));
         }
 
         foreach (Transform cube in cubes)
         {
-            sort.AppendCallback(() => { cube.GetChild(completeNoisePos).GetComponent<AudioSource>().Play(); });
-            sort.Join(cube.GetComponent<Renderer>().material.DOColor(Color.green, 0.3f));
+            animation.AppendCallback(() => { cube.GetChild(completeNoisePos).GetComponent<AudioSource>().Play(); });
+            animation.Join(cube.GetComponent<Renderer>().material.DOColor(Color.green, 0.3f));
         }
+        return animation; 
     }
 
     public void BubbleSort()
@@ -147,8 +164,6 @@ public class SortControl : MonoBehaviour
         HashSet<int> temp;
         int tempValue;
 
-        Debug.Log("Interact Sequence");
-
         for (int i = 0; i < valuesDup.Length; i++)
         {
             for (int j = 0; j < valuesDup.Length - i - 1; j++)
@@ -167,14 +182,6 @@ public class SortControl : MonoBehaviour
                 }
             }
         }
-
-        /*
-        foreach (int num in valuesDup)
-        {
-            Debug.Log(num);
-        }
-        */
-
 
     }
 
@@ -213,8 +220,8 @@ public class SortControl : MonoBehaviour
             if (seq.Peek().Contains(selectedOne) && seq.Peek().Contains(selectedTwo))
             {
                 //Correct pair animation
-                animation.AppendCallback(() => { cubes[selectedOne].GetChild(correctNoisePos).GetComponent<AudioSource>().Play(); });
-                animation.Append(cubes[selectedOne].GetComponent<Renderer>().material.DOColor(Color.green, 0.1f));
+                animation.AppendCallback(() => { cubes[selectedOne].GetChild(completeNoisePos).GetComponent<AudioSource>().Play(); });
+                animation.Join(cubes[selectedOne].GetComponent<Renderer>().material.DOColor(Color.green, 0.1f));
                 animation.Join(cubes[selectedTwo].GetComponent<Renderer>().material.DOColor(Color.green, 0.1f));
                 animation.AppendInterval(0.5f);
                 animation.Append(Swap(selectedOne, selectedTwo));
@@ -224,16 +231,16 @@ public class SortControl : MonoBehaviour
                 seq.Dequeue();
                 if (seq.Count == 0)
                 {
-                    CompletedAnimation();
+                    animation.Append(CompletedAnimation());
                 }
 
             } else
             {
                 //Wrong pair animation
-                animation.AppendCallback(() => { cubes[selectedOne].GetChild(wrongNoisePos).GetComponent<AudioSource>().Play(); });
-                animation.Append(cubes[selectedOne].GetComponent<Renderer>().material.DOColor(Color.red, 0.1f));
+                animation.AppendCallback(() => { cubes[selectedOne].GetChild(completeNoisePos).GetComponent<AudioSource>().Play(); });
+                animation.Join(cubes[selectedOne].GetComponent<Renderer>().material.DOColor(Color.red, 0.1f));
                 animation.Join(cubes[selectedTwo].GetComponent<Renderer>().material.DOColor(Color.red, 0.1f));
-                animation.AppendInterval(0.5f);
+                animation.AppendInterval(0.8f);
                 animation.Append(cubes[selectedOne].GetComponent<Renderer>().material.DOColor(Color.white, 0.1f));
                 animation.Join(cubes[selectedTwo].GetComponent<Renderer>().material.DOColor(Color.white, 0.1f));
             }
@@ -338,15 +345,15 @@ public class SortControl : MonoBehaviour
 
         Sequence cubeUp = DOTween.Sequence();
         cubeUp.AppendCallback(() => { cubes[left].GetChild(swapNoisePos).GetComponent<AudioSource>().Play(); });
-        cubeUp.Join(cubes[left].DOMoveY(0.4f, swapTime));
+        cubeUp.Join(cubes[left].DOMoveY(defaultY + 0.33f, swapTime));
         cubeUp.Append(cubes[left].DOMoveX((right - count / 2f) / 2, swapTime));
-        cubeUp.Append(cubes[left].DOMoveY(0, swapTime));
+        cubeUp.Append(cubes[left].DOMoveY(defaultY, swapTime));
 
         Sequence cubeDown = DOTween.Sequence();
         cubeDown.AppendCallback(() => { cubes[right].GetChild(swapNoisePos).GetComponent<AudioSource>().Play(); });
-        cubeDown.Join(cubes[right].DOMoveY(-0.4f, swapTime));
+        cubeDown.Join(cubes[right].DOMoveY(defaultY - 0.33f, swapTime));
         cubeDown.Append(cubes[right].DOMoveX((left - count / 2f) / 2, swapTime));
-        cubeDown.Append(cubes[right].DOMoveY(0, swapTime));
+        cubeDown.Append(cubes[right].DOMoveY(defaultY, swapTime));
 
         Sequence master = DOTween.Sequence();
         master.Join(cubeUp).Join(cubeDown);
@@ -374,13 +381,23 @@ public class SortControl : MonoBehaviour
     public void HoverUp(Transform cube)
     {
             Sequence seq = DOTween.Sequence();
-            seq.Append(cube.DOMoveY(0.10f, 0.3f));
+            seq.Append(cube.DOMoveY(defaultY + 0.10f, 0.3f));
     }
 
     public void HoverDown(Transform cube)
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(cube.DOMoveY(0, 0.3f));
+        seq.Append(cube.DOMoveY(defaultY, 0.3f));
+    }
+
+    public void PlayScene()  
+    {
+        DOTween.PlayAll();
+    }
+
+    public void PauseScene()
+    {
+        DOTween.PauseAll();
     }
 
     private void OnDestroy()

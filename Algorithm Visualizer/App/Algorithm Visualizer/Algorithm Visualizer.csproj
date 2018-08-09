@@ -382,7 +382,7 @@
 
   <ItemGroup>
     <ProjectReference Include="C:\Users\t-natli\Documents\Algorithm Visualizer\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj">
-      <Project>{1c8378ab-e850-4818-bcb2-aabfbb157dce}</Project>
+      <Project>{1ff4b7ad-e95c-44a2-90bf-4fa3954b89d1}</Project>
       <Name>Assembly-CSharp</Name>
       <Private>False</Private>
     </ProjectReference>

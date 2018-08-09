@@ -6,7 +6,7 @@
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
 Algorithm Visualizer.sln: modified
-Algorithm Visualizer\Algorithm Visualizer.csproj: 0D1EE59E7E033D5569C80D21144D3C6C
+Algorithm Visualizer\Algorithm Visualizer.csproj: 72802D2C40976EBDEC8753CAC3680DC1
 Algorithm Visualizer\Algorithm Visualizer.csproj.user: modified
 Algorithm Visualizer\App.cs: 303FE394741848A9E76B6A6703FD64A6
 Algorithm Visualizer\AssemblyConverterArgs.txt: 3356B641AF8E88827846837A5C7BF115

@@ -569,14 +569,13 @@
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UICollection.cs" />
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityScaler.cs" />
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs" />
-    <Compile Include="Assets\Scripts\Bubble_Control.cs" />
     <Compile Include="Assets\Scripts\Data.cs" />
     <Compile Include="Assets\Scripts\GazeResponder.cs" />
     <Compile Include="Assets\Scripts\HoverOver.cs" />
     <Compile Include="Assets\Scripts\LoadSceneTapResponder.cs" />
-    <Compile Include="Assets\Scripts\Quick_Control.cs" />
     <Compile Include="Assets\Scripts\SelectCubeTapResponder.cs" />
     <Compile Include="Assets\Scripts\SortControl.cs" />
+    <Compile Include="Assets\Scripts\UIButtonTapResponder.cs" />
     <Compile Include="Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Shaders\GLTFConstant.cginc" />

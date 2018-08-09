@@ -212,7 +212,6 @@ c4fd2ef7468c68e11d03e50c6e8b323d Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.A
 af1b899928fa73a7824f1b26518097f6 Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.MeshButton
 44f24521fcafda017d17ab4dbb73c0cc Assembly-CSharp.dll:HoloToolkit.UX.ToolTips.ToolTipConnector
 8186a0148b55fd4b5cdaa99b9937cf7d Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.ButtonMeshProfile
-d0c098eb94ba71f3b9bd1a36b4ff5415 Assembly-CSharp.dll:.Bubble_Control
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.SpatialMapping.SpatialMappingSource
 5afd3db10698268d25f6ba1fced4614b Assembly-CSharp.dll:HoloToolkit.Unity.UX.LineParticles
 7af9546644a163574e9d4ff26d86b8f2 Assembly-CSharp.dll:HoloToolkit.Unity.FadeManager
@@ -243,7 +242,6 @@ b48597bac756ea53cecb08fc53de8b9f Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.B
 5bbcdf115068cbc700263860c5b9348b Assembly-CSharp.dll:HoloToolkit.Unity.SolverMomentumizer
 6615064b38b6dd0d67ee6d1a687581f4 Assembly-CSharp.dll:HoloToolkit.UX.Progress.ProgressIndicatorOrbsRotator
 653e09ebb70bfbeeaf717decd116b136 Assembly-CSharp.dll:HoloToolkit.Unity.ClipPlane
-d0c098eb94ba71f3b9bd1a36b4ff5415 Assembly-CSharp.dll:.Quick_Control
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -299,6 +297,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+4b43993b8ad39295bec300141c297f8e Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.Tests.UIButtonTapResponder
 0739d9a7ca3db0f985c3fd8721aafe83 Assembly-CSharp.dll:HoloToolkit.Unity.UX.LineObjectSwarm
 8aa5c1c99ee5da26b779f7d54e977a39 Assembly-CSharp.dll:HoloToolkit.Unity.DirectionIndicator
 ecce978abee70e7852a63184a5b0520d Assembly-CSharp.dll:HoloToolkit.Unity.DebugPanelControllerInfo

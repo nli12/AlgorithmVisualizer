@@ -19,7 +19,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
 
         public void OnInputClicked(InputClickedEventData eventData)
         {
-            SceneManager.LoadSceneAsync(toLoad);
+            SceneManager.LoadScene(toLoad);
         }
     }
 }

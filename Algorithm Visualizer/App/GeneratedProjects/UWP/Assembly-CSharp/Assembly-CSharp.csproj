@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1c8378ab-e850-4818-bcb2-aabfbb157dce}</ProjectGuid>
+    <ProjectGuid>{1ff4b7ad-e95c-44a2-90bf-4fa3954b89d1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssemblyCSharpWSA</RootNamespace>
@@ -1905,9 +1905,6 @@
     <Compile Include="$(UnityProjectDir)Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs">
       <Link>HoloToolkit\UX\Scripts\UsabilityUtilities.cs</Link>
     </Compile>
-    <Compile Include="$(UnityProjectDir)Assets\Scripts\Bubble_Control.cs">
-      <Link>Scripts\Bubble_Control.cs</Link>
-    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\Data.cs">
       <Link>Scripts\Data.cs</Link>
     </Compile>
@@ -1920,14 +1917,14 @@
     <Compile Include="$(UnityProjectDir)Assets\Scripts\LoadSceneTapResponder.cs">
       <Link>Scripts\LoadSceneTapResponder.cs</Link>
     </Compile>
-    <Compile Include="$(UnityProjectDir)Assets\Scripts\Quick_Control.cs">
-      <Link>Scripts\Quick_Control.cs</Link>
-    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\SelectCubeTapResponder.cs">
       <Link>Scripts\SelectCubeTapResponder.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\SortControl.cs">
       <Link>Scripts\SortControl.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\UIButtonTapResponder.cs">
+      <Link>Scripts\UIButtonTapResponder.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs">
       <Link>Zero Rare\Retro Sound Effects\Demo\Demo.cs</Link>
